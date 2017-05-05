@@ -4,15 +4,15 @@
 
 ### users table
 
-| Column     | Type        | Option                      |
-|:-----------|------------:|:---------------------------:|
-| name       | string      | null: false,index: true,    |
-| email      | string      | null: false,unique: true    |
-| password   | string      | null: false                 |
+| Column     | Type        | Option                                |
+|:-----------|------------:|:-------------------------------------:|
+| name       | string      | null: false,index: true              |
+| email      | string      | null: false,unique: true, index: true |
+| password   | string      | null: false                           |
 
 #### Association
 * has_many :messages
-* has_many :groups,through: menbers
+* has_many :groups,through: menmbers
 * has_many :members
 
 ### messages table
@@ -27,4 +27,15 @@
 #### Association
 * belongs_to :users
 * belongs_to :groups
+
+### groups table
+
+| Column     | Type        | Option                      |
+|:-----------|------------:|:---------------------------:|
+| name       | string      | null: false                 |
+
+#### Association
+* has_many :messages
+* has_many :users, through: members
+* has_many :members
 

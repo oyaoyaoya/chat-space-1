@@ -39,3 +39,14 @@
 * has_many :users, through: members
 * has_many :members
 
+### members table
+
+| Column     | Type        | Option                      |
+|:-----------|------------:|:---------------------------:|
+| user_id    | integer     |                             |
+| group_id   | integer     |                             |
+
+
+#### Association
+* belongs_to :user
+* belongs_to :group

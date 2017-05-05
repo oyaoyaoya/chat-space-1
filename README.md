@@ -3,10 +3,11 @@
 ## DB設計
 
 ### users table
+--------------------------------------------------------------------
 
 | Column     | Type        | Option                                |
 |:-----------|------------:|:-------------------------------------:|
-| name       | string      | null: false,index: true              |
+| name       | string      | null: false,index: true               |
 | email      | string      | null: false,unique: true, index: true |
 | password   | string      | null: false                           |
 

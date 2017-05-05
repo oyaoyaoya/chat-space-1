@@ -16,3 +16,15 @@
 * has_many :members
 
 ### messages table
+
+| Column     | Type        | Option                      |
+|:-----------|------------:|:---------------------------:|
+| text       | text        |                             |
+| image      | string      |                             |
+| group_id   | integer     | null: false                 |
+| user_id    | integer     | null: false                 |
+
+#### Association
+* belongs_to :users
+* belongs_to :groups
+

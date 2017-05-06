@@ -6,5 +6,6 @@ class CreateMembers < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+  add_index :members,[:user_id,:group_id]
   end
 end

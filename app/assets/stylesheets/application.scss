@@ -1,1 +1,66 @@
 @import "./reset";
+@mixin clearfix {
+  &:after {
+    content:"";
+    display:block;
+    clear:both;
+  }
+}
+
+
+.head{
+  height:96px;
+  position:fixed;
+  top:0px;
+  width:100%;
+
+  .homeBar{
+    float:left;
+    height:96px;
+    width:300px;
+    background:#253141;
+  }
+
+  .topBar{
+    float:left;
+    background:#FFFFFF;
+    height:96px;
+    width:calc(100vw - 300px);
+  }
+}
+
+.main{
+  height:calc(100vh - 96px);
+  padding:96px 0 0 0 ;
+  width:100vw;
+  .side{
+    width:300px;
+    height:100%;
+    float:left;
+
+    .groupArea{
+      width:100%;
+      height:100%;
+      background:#2f3e51;
+    }
+  }
+
+  .content{
+    float:left;
+    width:calc(100vw - 300px);
+    height:100%;
+    .chatArea{
+      width:100%;
+      height:calc(100% - 70px);
+      background:#FAFAFA;
+
+    }
+
+    .inputArea{
+      width:100%;
+      height:70px;
+      background:#DDDDDD;
+    }
+  }
+
+}

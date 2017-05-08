@@ -1,4 +1,6 @@
 @import "./reset";
+@import "font-awesome";
+
 @mixin clearfix {
   &:after {
     content:"";
@@ -8,11 +10,10 @@
 }
 
 
-.head{
+.top{
   height:96px;
   position:fixed;
   top:0px;
-  width:100%;
 
   .homeBar{
     float:left;
@@ -63,4 +64,25 @@
     }
   }
 
+}
+
+.namebox{
+  width:260px;
+  padding:36px 20px;
+  &__name{
+    color:#FFFFFF;
+    font-weight:bold;
+    font-size:16px;
+  }
+  &__icons{
+    float:right;
+    &--pen{
+      color:#FFFFFF;
+      font-size:20px;
+    }
+    &--gear{
+      color:#FFFFFF;
+      font-size:20px;
+    }
+  }
 }

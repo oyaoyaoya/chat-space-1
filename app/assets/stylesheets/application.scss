@@ -11,13 +11,13 @@
 
 
 .top{
-  height:96px;
+  height:100px;
   position:fixed;
-  top:0px;
+  width:100vw;
 
   .homeBar{
     float:left;
-    height:96px;
+    height:100px;
     width:300px;
     background:#253141;
   }
@@ -25,14 +25,15 @@
   .topBar{
     float:left;
     background:#FFFFFF;
-    height:96px;
+    height:100px;
     width:calc(100vw - 300px);
+    border-bottom:ridge 1px #eeeeee;
   }
 }
 
 .main{
-  height:calc(100vh - 96px);
-  padding:96px 0 0 0 ;
+  height:calc(100vh - 100px);
+  padding:100px 0 0 0 ;
   width:100vw;
   .side{
     width:300px;
@@ -51,15 +52,14 @@
     width:calc(100vw - 300px);
     height:100%;
     .chatArea{
-      width:100%;
-      height:calc(100% - 70px);
+      height:calc(100% - 90px);
       background:#FAFAFA;
-
+      padding:0 40px;
     }
 
     .inputArea{
       width:100%;
-      height:70px;
+      height:90px;
       background:#DDDDDD;
     }
   }
@@ -86,6 +86,7 @@
     }
   }
 }
+
 .groupbox{
 
   &__name{
@@ -106,5 +107,123 @@
       font-size:11px;
       color:#FFFFFF;
     }
+  }
+}
+
+.topbox{
+  width:calc(100% - 80px);
+  margin:0 auto;
+  @include clearfix;
+  .titlebox{
+    width:80%;
+    float:left;
+    &__groupbox{
+      padding:30px 0 0 0;
+    }
+    &__groupname{
+      font-size:20px;
+    }
+    &__memberbox{
+      padding:5px 0 0 0 ;
+    }
+    &__membername{
+      font-size:12px;
+      color:#999999;
+    }
+  }
+  .editbox{
+    width:20%;
+    float:left;
+    height:40px;
+     margin:28px 0 0 0 ;
+      &__button{
+        float:right;
+        width:70px;
+    height:40px;
+    background:#FFFFFF;
+    color:#38AEF0;
+    border-color:#38AEF0;
+    line-height:40px;
+    text-align:center;
+    border:solid 2px #38AEF0;
+
+      }
+  }
+}
+
+
+.inputbox{
+  height:50px;
+  mergin:0px;
+  padding:20px 40px;
+  &__message{
+    width:calc(100% + 26px);
+    height:50px;
+    float:left;
+    background:#FFFFFF;
+    border:0px;
+    &__file{
+      width:10px;
+    }
+  }
+  &__chat{
+    width:calc(100% - 115px);
+    height:50px;
+    float:left;
+    display:table;
+  }
+  &__messagebox{
+    width:calc(100% - 26px);
+    height:50px;
+    float:left;
+  }
+  &__filebox{
+    width:26px;
+    height:50px;
+    line-height:50px;
+    float:left;
+  }
+  &__gap{
+    float:left;
+    background:#DDDDDD;
+    width:13px;
+    margin:0 0 0 2px;
+    height:50px;
+  }
+  &__button{
+    float:left;
+    width:100px;
+    height:50px;
+    background:#38AEF0;
+    color:#FFFFFF;
+    line-height:50px;
+    text-align:center;
+    border:0px;
+  }
+
+}
+
+.chatgap{
+  height:46px;
+}
+
+.chatbox{
+  &__gap{
+    height:10px;
+  }
+  &__name{
+    font-size:16px;
+    font-weight:bold;
+    color:#434A54
+
+  }
+  &__message{
+    font-size:14px;
+    color:#434A54;
+  }
+  &__date{
+    font-size:12px;
+    color:#999999;
+    margin:0 0 0 10px;
   }
 }

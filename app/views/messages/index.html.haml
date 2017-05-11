@@ -1,32 +1,60 @@
-%div.top
+.top
 
-  %div.homeBar
-
-    %div.namebox
-
+  .homeBar
+    .namebox
       %span.namebox__name
         Takeru
+        .namebox__icons
+          = link_to root_path do
+            %i.fa.fa-pencil-square-o.namebox__icons--pen
+            %i.fa.fa-cog.namebox__icons--gear
 
-      %div.namebox__icons
-        %i.fa.fa-pencil-square-o.namebox__icons--pen
-        %i.fa.fa-cog.namebox__icons--gear
+  .topBar
+    .topbox
+      .titlebox
+        .titlebox__groupbox
+          %span.titlebox__groupname
+            Sample
+        .titlebox__memberbox
+          %span.titlebox__membername
+            member : Takeru
+      .editbox
+        =link_to root_path do
+          %input.editbox__button(type="submit" value="Edit")
 
-  %div.topBar
 
 
-%div.main
-
-  %div.side
-
-    %div.groupArea
-
-      %div.groupbox
-        %div.groupbox__name
+.main
+  .side
+    .groupArea
+      .groupbox
+        .groupbox__name
           %span.groupbox__name--size-15 aaa
-        %div.groupbox__message
-          %span.groupbox__message--size-11 hellohello
+        .groupbox__message
+          %span.groupbox__message--size-11 helloh
 
-  %div.content
 
-    %div.chatArea
-    %div.inputArea
+  .content
+
+    .chatArea
+      .chatgap
+      .chatbox
+        %span.chatbox__name
+          takerutanaka
+        %span.chatbox__date
+          2017/5/10
+      .chatbox__gap
+        %span.chatbox__message
+          なるほどね
+
+    .inputArea
+
+      .inputbox
+        =form_for @message do |f|
+          .inputbox__chat
+            .inputbox__messagebox
+              =f.text_field :text,class: "inputbox__message", placeholder: "  type a message"
+            .inputbox__filebox
+              %i.fa.fa-picture-o
+          .inputbox__gap
+          =f.submit 'Send', class: "inputbox__button"

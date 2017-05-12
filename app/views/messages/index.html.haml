@@ -47,6 +47,8 @@
             .inputbox__messagebox
               =f.text_field :text,class: "inputbox__message", placeholder: "  type a message"
             .inputbox__filebox
-              %i.fa.fa-picture-o
+              = f.label :image, for: "file-input" do
+                %i.fa.fa-picture-o
+              = f.file_field :image, id: "file-input",style: "display:none";
           .inputbox__gap
           =f.submit 'Send', class: "inputbox__button"

@@ -9,9 +9,18 @@
   }
 }
 
+.flashbox{
+   background:#38AEF0;
+   text-align:center;
+   height:25px;
+   line-height:25px;
+  &__message{ 
+   color:#FFFFFF;
+  }
+}
 
 .top{
-  height:100px;
+  min-height:100px;
   position:fixed;
   width:100vw;
 
@@ -25,15 +34,15 @@
   .topBar{
     float:left;
     background:#FFFFFF;
-    height:100px;
     width:calc(100vw - 300px);
     border-bottom:ridge 1px #eeeeee;
+    min-height:100px;
   }
 }
 
 .main{
-  height:calc(100vh - 100px);
-  padding:100px 0 0 0 ;
+  height:calc(100vh - 125px);
+  padding:125px 0 0 0 ;
   width:100vw;
   .side{
     width:300px;
@@ -92,10 +101,12 @@
   &__name{
     width:260px;
     padding:20px 20px 5px;
+    word-wrap: break-word;
 
     &--size-15{
       font-size:15px;
       color:#FFFFFF;
+      word-wrap: break-word;
     }
   }
 
@@ -119,6 +130,7 @@
     float:left;
     &__groupbox{
       padding:30px 0 0 0;
+      word-wrap: break-word;
     }
     &__groupname{
       font-size:20px;
@@ -208,22 +220,29 @@
 }
 
 .chatbox{
+      margin:0 0 40px 0;
   &__gap{
     height:10px;
   }
-  &__name{
+  &__data{
+    line-height:16px;
+     &__name{
     font-size:16px;
     font-weight:bold;
-    color:#434A54
-
+    color:#434A54;
+    }
+     &__date{
+    font-size:12px;
+    color:#999999;
+    margin:0 0 0 10px;
+    }
+  }
+  &__chat{
+    line-height:14px;
   }
   &__message{
     font-size:14px;
     color:#434A54;
-  }
-  &__date{
-    font-size:12px;
-    color:#999999;
-    margin:0 0 0 10px;
+    word-wrap: break-word;
   }
 }

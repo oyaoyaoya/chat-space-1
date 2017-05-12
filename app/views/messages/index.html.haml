@@ -1,5 +1,8 @@
-.top
 
+.top
+  .flashbox
+    %span.flashbox__message
+      チャットグループが作成されました
   .homeBar
     .namebox
       %span.namebox__name
@@ -27,25 +30,14 @@
 .main
   .side
     .groupArea
-      .groupbox
-        .groupbox__name
-          %span.groupbox__name--size-15 aaa
-        .groupbox__message
-          %span.groupbox__message--size-11 helloh
+      =render partial:"group"
 
 
   .content
 
     .chatArea
       .chatgap
-      .chatbox
-        %span.chatbox__name
-          takerutanaka
-        %span.chatbox__date
-          2017/5/10
-      .chatbox__gap
-        %span.chatbox__message
-          なるほどね
+      =render partial:"message"
 
     .inputArea
 

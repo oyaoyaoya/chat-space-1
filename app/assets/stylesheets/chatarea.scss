@@ -1,0 +1,32 @@
+.chatgap{
+  height: 46px;
+}
+
+.chatbox{
+  margin: 0 0 40px 0;
+  margin-bottom:40px;
+  &__gap{
+    height: 10px;
+  }
+  &__data{
+    line-height: 16px;
+     &__name{
+    font-size: 16px;
+    font-weight: bold;
+    color: #434A54;
+    }
+     &__date{
+    font-size: 12px;
+    color: #999999;
+    margin-left:10px;
+    }
+  }
+  &__chat{
+    line-height: 14px;
+  }
+  &__message{
+    font-size: 14px;
+    color: #434A54;
+    word-wrap: break-word;
+  }
+}

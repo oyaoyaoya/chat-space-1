@@ -27,29 +27,25 @@
             Edit
 
 
-
 .main
   .side
     .groupArea
       =render partial:"group"
 
-
   .content
-
     .chatArea
       .chatgap
       =render partial:"message"
 
     .inputArea
-
       .inputbox
         =form_for @message do |f|
           .inputbox__chat
             .inputbox__messagebox
-              =f.text_field :text,class: "inputbox__message", placeholder: "  type a message"
+              =f.text_field :text, class: "inputbox__message", placeholder: "  type a message"
             .inputbox__filebox
               = f.label :image, for: "file-input" do
                 %i.fa.fa-picture-o
-              = f.file_field :image, id: "file-input",style: "display:none";
+              = f.file_field :image, id: "file-input", style: "display:none";
           .inputbox__gap
           =f.submit 'Send', class: "inputbox__button"

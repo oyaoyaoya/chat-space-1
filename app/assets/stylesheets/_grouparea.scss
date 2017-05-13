@@ -1,0 +1,27 @@
+.groupbox{
+  &__name{
+    width: 100%;
+    word-wrap: break-word;
+
+    &--size-15{
+      font-size: 15px;
+      color: #FFFFFF;
+      word-wrap: break-word;
+      display: block;
+      padding: 20px 20px 5px;
+      text-decoration: none;
+    }
+  }
+
+  &__message{
+    width: 260px;
+
+    &--size-11{
+      font-size: 11px;
+      color: #FFFFFF;
+      text-decoration: none;
+      display: block;
+      padding: 0 20px 20px;
+    }
+  }
+}

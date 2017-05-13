@@ -1,0 +1,48 @@
+
+.top
+  .flashbox
+    %span.flashbox__message
+      チャットグループが作成されました
+  .homeBar
+    .namebox
+      %span.namebox__name
+        Takeru
+        .namebox__icons
+          = link_to root_path do
+            %i.fa.fa-pencil-square-o.namebox__icons--pen
+            %i.fa.fa-cog.namebox__icons--gear
+
+  .topBar
+    .topbox
+      .titlebox
+        .titlebox__groupbox
+          %span.titlebox__groupname
+            Sample
+        .titlebox__memberbox
+          %span.titlebox__membername
+            member : Takeru
+      .editbox
+        =link_to "Edit", root_path, class: "editbox__button"
+
+.main
+  .side
+    .groupArea
+      =render partial:"group"
+
+  .content
+    .chatArea
+      .chatgap
+      =render partial:"message"
+
+    .inputArea
+      .inputbox
+        =form_for @message do |f|
+          .inputbox__chat
+            .inputbox__messagebox
+              =f.text_field :text, class: "inputbox__message", placeholder: "  type a message"
+            .inputbox__filebox
+              = f.label :image, for: "file-input" do
+                %i.fa.fa-picture-o
+              = f.file_field :image, id: "file-input", style: "display:none";
+          .inputbox__gap
+          =f.submit 'Send', class: "inputbox__button"

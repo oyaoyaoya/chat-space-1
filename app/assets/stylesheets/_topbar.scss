@@ -1,0 +1,50 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+.topbox{
+  width: calc(100% - 80px);
+  margin: 0 auto;
+  @include clearfix;
+  .titlebox{
+    width: 80%;
+    float: left;
+    &__groupbox{
+      padding-top: 30px;
+      word-wrap: break-word;
+    }
+    &__groupname{
+      font-size: 20px;
+    }
+    &__memberbox{
+      padding: 5px 0 0 0 ;
+    }
+    &__membername{
+      font-size: 12px;
+      color: #999999;
+    }
+  }
+  .editbox{
+    width: 20%;
+    float: left;
+    height: 40px;
+    margin-top: 28px;
+      &__button{
+        float: right;
+        width: 70px;
+        height: 40px;
+        background: #FFFFFF;
+        color: #38AEF0;
+        border-color: #38AEF0;
+        line-height: 40px;
+        text-align: center;
+        border: solid 2px #38AEF0;
+        text-decoration: none;
+      }
+  }
+}

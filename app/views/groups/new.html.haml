@@ -26,12 +26,9 @@
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
-
-        / %div{id: "chat-group-users"}
-        /   .chat-group-user
-        /     = f.text_field 
-        /     %p.chat-group-user__name
-        /       set_kyohei
+        .chat-group-user
+          = collection_check_boxes(:member, :user_id, User.all, :id, :name, include_hidden: false) do |b|
+            = b.label { b.check_box + b.text }
 
     .chat-group-form__field
       .chat-group-form__field--left

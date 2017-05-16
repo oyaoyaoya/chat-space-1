@@ -3,7 +3,7 @@
   .homeBar
     .namebox
       %span.namebox__name
-        Takeru
+        = current_user.name
         .namebox__icons
           = link_to new_group_path do
             %i.fa.fa-pencil-square-o.namebox__icons--pen
@@ -25,7 +25,7 @@
 .main
   .side
     .groupArea
-      =render partial:"group"
+      =render partial:"group", collection: @groups
 
   .content
     .chatArea

@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates_presence_of :name
 
   has_many :members
-  has_many :groups, through: :members
+  has_many :groups, through: :members, dependent: :destroy
 end

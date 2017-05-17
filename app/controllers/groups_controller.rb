@@ -9,10 +9,17 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.create(group_params)
-    member_params[:user_id].each do |id|
-      Member.create(user_id: id, group_id: group.id)
+
+    if group.valid?
+      member_params[:user_id].each do |id|
+        Member.create(user_id: id, group_id: group.id)
+      end
+      redirect_to :root
+    else
+      @group = Group.new
+      @error_group = group
+      render 'new'
     end
-    redirect_to :root
   end
 
 private

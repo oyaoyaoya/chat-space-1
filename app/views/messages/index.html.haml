@@ -1,0 +1,19 @@
+
+.top
+  .homeBar
+    .namebox
+      %span.namebox__name
+        = current_user.name
+        .namebox__icons
+          = link_to new_group_path do
+            %i.fa.fa-pencil-square-o.namebox__icons--pen
+          = link_to edit_user_registration_path do
+            %i.fa.fa-cog.namebox__icons--gear
+  .topBar__index
+
+.main
+  .side
+    .groupArea
+      =render partial:"group", collection: @groups
+
+  .content__index

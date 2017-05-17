@@ -16,6 +16,13 @@
     border-bottom: ridge 1px #eeeeee;
     min-height: 100px;
   }
+
+  .topBar__index{
+    float: left;
+    background: #FAFAFA;
+    width: calc(100% - 300px);
+    min-height: 101px;
+  }
 }
 
 .main{
@@ -50,6 +57,14 @@
       bottom: 0px;
       background: #DDDDDD;
     }
+  }
+
+  .content__index{
+    float: left;
+    width: calc(100% - 300px);
+    height: 100%;
+    overflow-y: auto;
+    background:#FAFAFA;
   }
 }
 

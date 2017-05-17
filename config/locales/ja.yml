@@ -1,23 +1,21 @@
 ja:
   activerecord:
-    models:
-      user: ユーザー
-    attributes:
-      user:
-        id: ID
-        created_at: 登録日時
-        updated_at: 更新日時
-        birthday: 生年月日
-        email: メールアドレス
-        salon_id: サロン
-        password: パスワード
-        name: 名前
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
+    models:
+     group: グループ
+    attributes:
+     group:
+        id: ID
+        name: グループ名
+        created_at: 登録日時
+        updated_at: 更新日時
+
   date:
     abbr_day_names:
     - 日

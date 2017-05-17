@@ -12,7 +12,7 @@
               = error
     .chat-group-form__field
       .chat-group-form__field--left
-        = f.label :group, class: "chat-group-form__label"
+        = f.label :グループ, class: "chat-group-form__label"
       .chat-group-form__field--right
         = f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input"
     .chat-group-form__field
@@ -29,7 +29,7 @@
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-user
-          = collection_check_boxes(:member, :user_id, User.all, :id, :name, include_hidden: false) do |b|
+          = collection_check_boxes(:member, :user_id, User.all, :id, :name) do |b|
             = b.label { b.check_box + b.text }
 
     .chat-group-form__field

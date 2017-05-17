@@ -2,12 +2,14 @@
   %h1
     チャットグループ編集
   = form_for(@group) do |f|
-    .chat-group-form__errors
-      %h2
-        1件のエラーが発生しました
-      %ul
-        %li
-          エラーです
+    - if @error_group.present?
+      .chat-group-form__errors
+        %h2
+          #{@error_group.errors.full_messages.length} 件のエラーが発生しました
+        %ul
+          %li
+            - @error_group.errors.full_messages.each  do |error|
+              = error
     .chat-group-form__field
       .chat-group-form__field--left
         = f.label :グループ名, class: "chat-group-form__label"
@@ -26,6 +28,9 @@
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
+        .chat-group-user
+          = collection_check_boxes(:member, :user_id, @users, :id, :name) do |b|
+            = b.label { b.check_box + b.text }
     .chat-group-form__field
       .chat-group-form__field--left
       .chat-group-form__field--right

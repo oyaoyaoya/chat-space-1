@@ -23,13 +23,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-
     group = Group.new(group_params)
     # validationの結果による動作の条件分岐
     # クリア->
         # member_params[:user_id]の中身があるときだけ保存
     # 失敗->エラーメッセージとともにリダイレクト
-    if group.save
+    if group.valid?
       redirect_to :root
     else
       @group = Group.new
@@ -42,9 +41,6 @@ class GroupsController < ApplicationController
     group = Group.find(params[:id])
     group.update(group_params)
     if group.valid?
-      member_params[:user_id].each do |id|
-        Member.create(user_id: id, group_id: group.id) if id.present?
-      end
       redirect_to :root
     else
       @group = Group.find(params[:id])

@@ -29,7 +29,7 @@
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
         .chat-group-user
-          = collection_check_boxes(:member, :user_id, @users, :id, :name) do |b|
+          = collection_check_boxes(:group, :user_ids, User.all, :id, :name, include_hidden: false) do |b|
             = b.label { b.check_box + b.text }
     .chat-group-form__field
       .chat-group-form__field--left

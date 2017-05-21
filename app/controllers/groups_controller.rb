@@ -16,11 +16,9 @@ class GroupsController < ApplicationController
     @users = User.where.not(id: belonged_user_id)
   end
 
-  def show
-    @groups = current_user.groups
-    @group = Group.find(params[:id])
+  def index
     @message = Message.new
-    @messages = @group.messages.order('created_at DESC')
+    @groups = current_user.groups
   end
 
   def create

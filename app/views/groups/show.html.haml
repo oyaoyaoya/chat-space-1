@@ -23,27 +23,27 @@
               = user.name
 
       .editbox
-        =link_to "Edit", edit_group_path(@group.id), class: "editbox__button"
+        = link_to "Edit", edit_group_path(@group.id), class: "editbox__button"
 
 .main
   .side
     .groupArea
-      =render partial:"group", collection: @groups
+      = render partial: "group", collection: @groups
 
   .content
     .chatArea
       .chatgap
-      =render @messages
+      = render partial: "message", collection: @messages
 
     .inputArea
       .inputbox
-        =form_for @message, :url => group_messages_path(@group) do |f|
+        = form_for @message, :url => group_messages_path(@group) do |f|
           .inputbox__chat
             .inputbox__messagebox
-              =f.text_field :text, class: "inputbox__message", placeholder: "  type a message"
+              = f.text_field :text, class: "inputbox__message", placeholder: "  type a message"
             .inputbox__filebox
               = f.label :image, for: "file-input" do
                 %i.fa.fa-picture-o
               = f.file_field :image, id: "file-input", style: "display:none";
           .inputbox__gap
-          =f.submit 'Send', class: "inputbox__button"
+          = f.submit 'Send', class: "inputbox__button"

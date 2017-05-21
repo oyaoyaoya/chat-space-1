@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
     # クリア->
         # member_params[:user_id]の中身があるときだけ保存
     # 失敗->エラーメッセージとともにリダイレクト
-    if group.valid?
+    if group.save
       redirect_to :root
     else
       @group = Group.new

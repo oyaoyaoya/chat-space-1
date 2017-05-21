@@ -33,11 +33,11 @@
   .content
     .chatArea
       .chatgap
-      =render partial:"message"
+      =render @messages
 
     .inputArea
       .inputbox
-        =form_for @message do |f|
+        =form_for @message, :url => group_messages_path(@group) do |f|
           .inputbox__chat
             .inputbox__messagebox
               =f.text_field :text, class: "inputbox__message", placeholder: "  type a message"

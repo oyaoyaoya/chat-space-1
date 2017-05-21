@@ -17,9 +17,10 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @groups = Group.all
+    @groups = current_user.groups
     @group = Group.find(params[:id])
     @message = Message.new
+    @messages = @group.messages.order('created_at ASC')
   end
 
   def create

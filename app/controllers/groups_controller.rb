@@ -16,10 +16,9 @@ class GroupsController < ApplicationController
     @users = User.where.not(id: belonged_user_id)
   end
 
-  def show
-    @groups = Group.all
-    @group = Group.find(params[:id])
+  def index
     @message = Message.new
+    @groups = current_user.groups
   end
 
   def create
@@ -28,7 +27,7 @@ class GroupsController < ApplicationController
     # クリア->
         # member_params[:user_id]の中身があるときだけ保存
     # 失敗->エラーメッセージとともにリダイレクト
-    if group.valid?
+    if group.save
       redirect_to :root
     else
       @group = Group.new

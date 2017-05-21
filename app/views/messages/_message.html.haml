@@ -1,10 +1,10 @@
 .chatbox
   .chatbox__data
     %span.chatbox__data__name
-      takerutanaka
+      = message.user.name
     %span.chatbox__data__date
-      2017/5/10
+      = message.created_at.strftime("%Y-%m-%d %H:%M:%S")
   .chatbox__gap
   .chatbox__chat
     %span.chatbox__message
-      なるほどね
+      = message.text

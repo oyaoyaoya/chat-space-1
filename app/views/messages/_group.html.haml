@@ -1,6 +1,9 @@
 
 .groupbox
   .groupbox__name
-    =link_to "#{group.name}", group_path(group.id), class: "groupbox__name--size-15"
+    = link_to "#{group.name}", group_messages_path(group.id), class: "groupbox__name--size-15"
   .groupbox__message
-    =link_to "hellohello", group_path(group.id), class: "groupbox__message--size-11"
+    - if group.messages.last
+      = link_to "#{group.messages.last.text}", group_messages_path(group.id), class: "groupbox__message--size-11"
+    - else
+      = link_to "", group_messages_path(group.id), class: "groupbox__message--size-11"

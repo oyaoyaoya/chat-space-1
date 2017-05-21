@@ -6,9 +6,9 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.create(message_params)
+    message = Message.new(message_params)
 
-    if message.valid?
+    if message.save
       redirect_to :back
     else
       redirect_to :back, :alert => "#{message.errors.full_messages[0]}"

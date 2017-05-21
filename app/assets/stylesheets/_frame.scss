@@ -48,6 +48,12 @@
       min-height: calc(100% - 90px);
       background: #FAFAFA;
       padding: 0 40px;
+      &:after{
+      content: "";
+      display: block;
+      width: calc(100% - 300%);
+      height:90px;
+      }
     }
 
     .inputArea{

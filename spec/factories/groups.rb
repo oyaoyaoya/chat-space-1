@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :group do
     id          1
-    name       "SampleClub"
+    name        Faker::Team.name
   end
 
 end

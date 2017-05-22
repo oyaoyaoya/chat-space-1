@@ -2,9 +2,9 @@ FactoryGirl.define do
 
   factory :user do
     id           1
-    name         "tanaka"
-    email        "tanaka@gmail.com"
-    password     "000000000"
+    name         Faker::Name.name
+    email        Faker::Internet.email
+    password     Faker::Internet.password(8)
   end
 
 end

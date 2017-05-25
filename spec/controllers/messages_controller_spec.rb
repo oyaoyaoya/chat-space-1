@@ -75,7 +75,12 @@ describe MessagesController, type: :controller do
         end
       end
     end
-
+    context "ユーザーがログインしていない場合" do
+      it "ログインページにリダイレクトされること" do
+        post :create, params: {group_id: group, message: attributes_for(:message).merge(text: "")}
+         expect(response).to redirect_to new_user_session_path
+      end
+    end
   end
 
 

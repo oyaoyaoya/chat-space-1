@@ -44,4 +44,39 @@ describe MessagesController, type: :controller do
   end
 
 
+  describe 'POST #create' do
+    context "ユーザーがログインしている場合" do
+      before do
+        login_user user
+      end
+      context "正常に保存できる時" do
+        it "パラメーターで送られててきたデータが保存できること" do
+          expect{
+            post :create, params: {group_id: group, message: attributes_for(:message)}
+          }.to change(Message, :count).by(1)
+        end
+
+        it "投稿ページにリダイレクトされること" do
+          post :create, params: {group_id: group, message: attributes_for(:message)}
+          expect(response).to redirect_to group_messages_path(group)
+        end
+
+      end
+      context "正常に保存できない時" do
+        it "パラメーターで送られてきたデータが保存されないこと" do
+          expect{
+            post :create, params: {group_id: group, message: attributes_for(:message).merge(text: "")}
+          }.to change(Message, :count).by(0)
+        end
+
+        it "投稿ページにリダイレクトされること" do
+          post :create, params: {group_id: group, message: attributes_for(:message).merge(text: "")}
+          expect(response).to redirect_to group_messages_path(group)
+        end
+      end
+    end
+
+  end
+
+
 end

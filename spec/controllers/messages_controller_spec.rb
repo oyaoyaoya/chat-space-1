@@ -34,6 +34,13 @@ describe MessagesController, type: :controller do
       end
 
     end
+    context "ユーザーがログインしていない場合" do
+      it "ログインページにリダイレクトされること" do
+        group = user.groups.first
+        get :index, params: {group_id: group}
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
   end
 
 end

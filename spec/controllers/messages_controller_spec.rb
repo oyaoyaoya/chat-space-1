@@ -45,6 +45,9 @@ describe MessagesController, type: :controller do
 
 
   describe 'POST #create' do
+  subject {
+      Proc.new { post :create, params: {group_id: group, message: attributes_for(:message)} }
+    }
     context "ユーザーがログインしている場合" do
       before do
         login_user user
@@ -52,12 +55,12 @@ describe MessagesController, type: :controller do
       context "正常に保存できる時" do
         it "パラメーターで送られててきたデータが保存できること" do
           expect{
-            post :create, params: {group_id: group, message: attributes_for(:message)}
+            subject.call
           }.to change(Message, :count).by(1)
         end
 
         it "投稿ページにリダイレクトされること" do
-          post :create, params: {group_id: group, message: attributes_for(:message)}
+          subject.call
           expect(response).to redirect_to group_messages_path(group)
         end
 
@@ -70,14 +73,14 @@ describe MessagesController, type: :controller do
         end
 
         it "投稿ページにリダイレクトされること" do
-          post :create, params: {group_id: group, message: attributes_for(:message).merge(text: "")}
+          subject.call
           expect(response).to redirect_to group_messages_path(group)
         end
       end
     end
     context "ユーザーがログインしていない場合" do
       it "ログインページにリダイレクトされること" do
-        post :create, params: {group_id: group, message: attributes_for(:message).merge(text: "")}
+        subject.call
          expect(response).to redirect_to new_user_session_path
       end
     end

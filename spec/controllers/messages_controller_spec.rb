@@ -45,14 +45,14 @@ describe MessagesController, type: :controller do
 
 
   describe 'POST #create' do
-  subject {
-      Proc.new { post :create, params: {group_id: group, message: attributes_for(:message)} }
-    }
     context "ユーザーがログインしている場合" do
       before do
         login_user user
       end
       context "正常に保存できる時" do
+        subject {
+          Proc.new { post :create, params: {group_id: group, message: attributes_for(:message)} }
+        }
         it "パラメーターで送られててきたデータが保存できること" do
           expect{
             subject.call
@@ -66,9 +66,12 @@ describe MessagesController, type: :controller do
 
       end
       context "正常に保存できない時" do
+        subject {
+          Proc.new { post :create, params: {group_id: group, message: attributes_for(:message).merge(text: "")} }
+        }
         it "パラメーターで送られてきたデータが保存されないこと" do
           expect{
-            post :create, params: {group_id: group, message: attributes_for(:message).merge(text: "")}
+            subject.call
           }.to change(Message, :count).by(0)
         end
 
@@ -76,11 +79,16 @@ describe MessagesController, type: :controller do
           subject.call
           expect(response).to redirect_to group_messages_path(group)
         end
+
+        it "リダイレクトされた時にフラッシュメッセージを表示すること" do
+          subject.call
+          expect(flash[:alert]).to eq("テキストを入力してください")
+        end
       end
     end
     context "ユーザーがログインしていない場合" do
       it "ログインページにリダイレクトされること" do
-        subject.call
+         post :create, params: {group_id: group, message: attributes_for(:message)}
          expect(response).to redirect_to new_user_session_path
       end
     end

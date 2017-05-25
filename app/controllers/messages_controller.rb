@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
     if message.save
       redirect_to group_messages_path(message_params[:group_id])
     else
-      redirect_to group_messages_path(message_params[:group_id]), :alert => "#{message.errors.full_messages[0]}"
+      redirect_to group_messages_path(message_params[:group_id]), :alert => "テキストを入力してください"
     end
   end
 

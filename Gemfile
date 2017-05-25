@@ -58,6 +58,7 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'pry-rails'
 gem 'rails-i18n'
-gem 'rspec-rails'
+gem 'rspec-rails', '~> 3.5.0'
 gem 'factory_girl_rails'
 gem 'rake',  '< 11.0'
+gem 'rails-controller-testing'

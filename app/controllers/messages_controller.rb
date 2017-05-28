@@ -10,7 +10,10 @@ class MessagesController < ApplicationController
   def create
     message = Message.new(message_params)
     if message.save
-      redirect_to group_messages_path(message_params[:group_id])
+      respond_to do |format|
+        format.json { render json: {text: message.text, name: message.user.name, day: message.created_at.strftime("%Y-%m-%d %H:%M:%S")} }
+        format.html { redirect_to group_messages_path(message_params[:group_id]) }
+      end
     else
       redirect_to group_messages_path(message_params[:group_id]), :alert => "テキストを入力してください"
     end

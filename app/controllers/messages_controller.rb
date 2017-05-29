@@ -8,9 +8,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.new(message_params)
-    if message.save
-      redirect_to group_messages_path(message_params[:group_id])
+    @message = Message.new(message_params)
+    if @message.save
+      respond_to do |format|
+        format.json
+        format.html { redirect_to group_messages_path(message_params[:group_id]) }
+      end
     else
       redirect_to group_messages_path(message_params[:group_id]), :alert => "テキストを入力してください"
     end

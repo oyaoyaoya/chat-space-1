@@ -16,21 +16,17 @@
       .chat-group-form__field--right
         = f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input"
     .chat-group-form__field
-
-      / .chat-group-form__field--left
-      /   = f.label :チャットメンバーを追加, class: "chat-group-form__label"
-      / .chat-group-form__field--right
-      /   .chat-group-form__search
-      /     f.text_field class: "chat-group-form__input", placeholder: "追加したいユーザー名を入力してください"
-      /   %div{id: "user-search-result"}
+      .chat-group-form__field--left
+        = f.label :チャットメンバーを追加, class: "chat-group-form__label"
+      .chat-group-form__field--right
+        .chat-group-form__search
+          %input{type: :text, class: "chat-group-form__input", placeholder: "追加したいユーザー名を入力してください"}
 
     .chat-group-form__field
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
-      .chat-group-form__field--right
+      .chat-group-form__field--right.choiced
         .chat-group-user
-          = collection_check_boxes(:group, :user_ids, User.all, :id, :name, include_hidden: false) do |b|
-            = b.label { b.check_box + b.text }
 
     .chat-group-form__field
       .chat-group-form__field--left

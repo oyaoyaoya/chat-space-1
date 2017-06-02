@@ -98,11 +98,11 @@
       display: inline-block;
       cursor: pointer;
 
-      &.chat-group-user__btn--add {
+      &--add {
         color: #38aef0;
       }
 
-      &.chat-group-user__btn--remove {
+      &--remove {
         color: #f05050;
       }
     }

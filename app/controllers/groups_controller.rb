@@ -6,14 +6,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-    belonged_user = @group.users
-    belonged_user_id = []
-    # すでにグループに所属しているユーザーのidを配列で返す
-    belonged_user.map do |user|
-      belonged_user_id << user.id
-    end
-    # グループに所属していないユーザー一覧をビューで表示するため
-    @users = User.where.not(id: belonged_user_id)
+    @belonged_user = @group.users
   end
 
   def index
@@ -42,17 +35,17 @@ class GroupsController < ApplicationController
     if group.valid?
       redirect_to :root
     else
-      @group = Group.find(params[:id])
-      @error_group = group
-      belonged_user = @group.users
-      belonged_user_id = []
-      belonged_user.map do |user|
-        belonged_user_id << user.id
-      end
-      @users = User.where.not(id: belonged_user_id)
-      render 'edit'
+      redirect_to :new_group_path
     end
   end
+
+  def search
+    @users = User.where('name LIKE(?)', "%#{params[:input]}%")
+    respond_to do |format|
+        format.json
+    end
+  end
+
 
 private
   def group_params

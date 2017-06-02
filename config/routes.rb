@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: :update
   resources :groups, except: %i(index destroy show) do
     resources :messages, only: %i(index create)
+    collection do
+      post :search
+    end
   end
 end

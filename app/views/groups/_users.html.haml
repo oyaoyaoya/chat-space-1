@@ -1,0 +1,7 @@
+%div{:class => "chat-group-user user__id-#{users.id}"}
+  .chat-group-user__name
+    = users.name
+  .chat-group-user__btn
+    %span{:class => 'chat-group-user__btn--remove' ,:data_userid => users.id}
+      削除
+  %input{type: :hidden, name: :'group[user_ids][]', value: users.id}

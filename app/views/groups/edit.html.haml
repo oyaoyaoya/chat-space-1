@@ -26,9 +26,7 @@
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right.choiced
-
-
-
+        = render partial:"users", collection: @users
 
     .chat-group-form__field
       .chat-group-form__field--left

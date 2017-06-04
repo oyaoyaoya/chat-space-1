@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   def edit
     @group = Group.find(params[:id])
     @belonged_user = @group.users
+    @users = @group.users
   end
 
   def index

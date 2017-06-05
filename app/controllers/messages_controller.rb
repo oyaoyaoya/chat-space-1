@@ -5,6 +5,10 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
     @message = Message.new
     @messages = @group.messages.order('created_at DESC')
+    respond_to do |format|
+      format.json
+      format.html
+    end
   end
 
   def create
